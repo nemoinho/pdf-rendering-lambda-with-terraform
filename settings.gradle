@@ -1,1 +1,3 @@
 rootProject.name = 'pdf-rendering-lambda-with-terraform'
+
+include 'pdf-renderer'
