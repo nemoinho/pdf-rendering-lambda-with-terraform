@@ -1,0 +1,12 @@
+{
+  "name": "upload-signer",
+  "version": "1.0.0",
+  "description": "A simple lambda to sign upload requests in AWS",
+  "main": "src/index.js",
+  "author": "Felix Nehrke <felix@nehrke.info>",
+  "license": "proprietary",
+  "private": true,
+  "devDependencies": {
+    "aws-sdk": "^2.587.0"
+  }
+}

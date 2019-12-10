@@ -1,3 +1,4 @@
 rootProject.name = 'pdf-rendering-lambda-with-terraform'
 
 include 'pdf-renderer'
+include 'upload-signer'

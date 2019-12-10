@@ -1,0 +1,27 @@
+plugins {
+    id 'base'
+    id "com.moowork.node" version "1.3.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+node {
+    version = '12.13.0'
+    yarnVersion = '1.19.2'
+    download = true
+}
+
+task yarnInstallProduction(type: YarnTask) {
+    args = ['install', '--production']
+}
+
+task buildZip(type: Zip) {
+    from fileTree('src/')
+    from fileTree(dir: '.', includes: ['node_modules/**/*'])
+    archiveName('upload-signer.zip')
+}
+
+build.dependsOn buildZip
+buildZip.dependsOn yarnInstallProduction
