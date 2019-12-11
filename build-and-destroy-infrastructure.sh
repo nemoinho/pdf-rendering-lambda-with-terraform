@@ -29,7 +29,6 @@ do
   aws s3 cp $project/build/distributions/$project.zip.base64sha256 s3://pdf-rendering-lambda-with-terraform-example-lambda-artifacts/$project.zip.base64sha256
 done
 
-
 # Create dev
 cd terraform/dev
 terraform init
@@ -42,7 +41,16 @@ cd -
 echo "Press enter to destroy again, else CTRL+C"
 read WAIT_FOR_INPUT
 
+
 ### destroy everything from here on!!!
+# destroy dev resources
+cd terraform/dev
+terraform init
+terraform plan -destroy -out plan
+terraform apply plan
+rm plan
+cd -
+
 # destroy global resources
 cd terraform/global
 terraform init
